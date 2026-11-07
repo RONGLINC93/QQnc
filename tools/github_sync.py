@@ -233,6 +233,7 @@ def cmd_push(message):
     auth = git_auth()
     msg = message or "update: QQ农场 fnOS 工程"
     log("=== 1/3 暂存并提交 ===")
+    log("[提示] 文件较多，暂存可能需要十几秒")
     if git(["add", "-A"]).returncode != 0:
         fail("git add 失败")
     if has_staged_changes():
@@ -249,7 +250,10 @@ def cmd_push(message):
     else:
         log("[提示] 远程还没有 %s 分支（首次推送），跳过变基" % BRANCH)
     log("=== 3/3 推送到 origin/%s ===" % BRANCH)
-    if git(["push", "-u", "origin", BRANCH], auth=auth).returncode != 0:
+    log("[提示] 首次推送约 116MB / 1.2 万个对象，下面会显示上传进度，请耐心等待，不要中断")
+    # --progress 强制输出进度；加大 postBuffer 避免大 pack 触发 RPC failed
+    if git(["-c", "http.postBuffer=524288000", "push", "-u", "--progress",
+            "origin", BRANCH], auth=auth).returncode != 0:
         log("[错误] 推送失败。若远程仓库尚未创建，运行：python tools/github_sync.py create")
         return 1
     log("[完成] 已推送到 origin/%s" % BRANCH)
