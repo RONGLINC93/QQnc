@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# pyright: reportAny=false, reportUnusedCallResult=false
 """双击：按 manifest 当前版本发布（打包 fpk + 推送代码 + GitHub Release）。
 
 也可命令行传参：python release.py --version 1.0.1 --notes "修复面板 IPv6 链接"
@@ -11,6 +12,8 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 spec = importlib.util.spec_from_file_location(
     "qqfarm_release", os.path.join(ROOT, "tools", "release.py"))
+if spec is None or spec.loader is None:
+    raise ImportError("无法加载 tools/release.py")
 mod = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mod)
 
