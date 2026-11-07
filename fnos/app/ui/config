@@ -1,0 +1,23 @@
+{
+  ".url": {
+    "qqfarm.main": {
+      "title": "QQ农场管理",
+      "icon": "images/icon_{0}.png",
+      "type": "iframe",
+      "protocol": "",
+      "gatewayPrefix": "/app/qqfarm",
+      "gatewaySocket": "app.sock",
+      "url": "/app/qqfarm",
+      "allUsers": true
+    },
+    "qqfarm.game": {
+      "title": "进入QQ农场",
+      "icon": "images/icon_{0}.png",
+      "type": "url",
+      "protocol": "http",
+      "port": "${wizard_http_port}",
+      "url": "/",
+      "allUsers": true
+    }
+  }
+}

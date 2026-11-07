@@ -1,0 +1,57 @@
+#!/bin/bash
+# QQ农场 fpk 生命周期入口：start / stop / status
+# 端口优先级：fnOS 注入的 wizard_http_port > 持久化的 qqfarm_port.conf > 8081
+TRIM_APPDEST="${TRIM_APPDEST:-.}"
+PORT_CONF="${TRIM_PKGETC:-${TRIM_PKGVAR}/etc}/qqfarm_port.conf"
+
+qqfarm_load_port() {
+  p="${wizard_http_port:-}"
+  [ -z "$p" ] && [ -f "$PORT_CONF" ] && p="$(cat "$PORT_CONF" 2>/dev/null)"
+  case "$p" in ''|*[!0-9]*) p=8081 ;; esac
+  if [ "$p" -lt 1 ] || [ "$p" -gt 65535 ]; then p=8081; fi
+  echo "$p"
+}
+
+qqfarm_save_port() {
+  p="$1"
+  mkdir -p "$(dirname "$PORT_CONF")" "${TRIM_APPDEST}/docker" 2>/dev/null
+  echo "$p" > "$PORT_CONF" 2>/dev/null
+  # Docker Compose 会自动加载项目目录下的 .env，确保 fnOS 直接 up 时也用对端口
+  printf 'wizard_http_port=%s\n' "$p" > "${TRIM_APPDEST}/docker/.env" 2>/dev/null
+  export wizard_http_port="$p"
+  export QQFARM_HTTP_PORT="$p"
+}
+
+compose() {
+  cd "${TRIM_APPDEST}/docker" || return 1
+  if docker compose version >/dev/null 2>&1; then
+    docker compose -p qqfarm -f docker-compose.yaml "$@"
+  elif command -v docker-compose >/dev/null 2>&1; then
+    docker-compose -p qqfarm -f docker-compose.yaml "$@"
+  else
+    return 127
+  fi
+}
+
+case "$1" in
+  start)
+    P="$(qqfarm_load_port)"
+    qqfarm_save_port "$P"
+    mkdir -p "${TRIM_PKGVAR}/mysql" 2>/dev/null
+    compose up -d >/dev/null 2>&1
+    exit 0
+    ;;
+  stop)
+    compose stop >/dev/null 2>&1
+    exit 0
+    ;;
+  status)
+    if [ "$(docker inspect -f '{{.State.Running}}' qqfarm-web 2>/dev/null)" = "true" ]; then
+      exit 0
+    fi
+    exit 3
+    ;;
+  *)
+    exit 1
+    ;;
+esac

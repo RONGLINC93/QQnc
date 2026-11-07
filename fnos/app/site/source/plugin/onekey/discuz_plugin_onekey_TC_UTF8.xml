@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X2 RC]]></item>
+	<item id="Time"><![CDATA[2011-05-08 11:29]]></item>
+	<item id="From"><![CDATA[Discuz! Board (http://localhost/x2/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[一鍵轉播]]></item>
+			<item id="identifier"><![CDATA[onekey]]></item>
+			<item id="description"><![CDATA[添加一鍵轉播各微博、熱門sns按鍵的功能]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[onekey/]]></item>
+			<item id="copyright"><![CDATA[Comsenz Support Team]]></item>
+			<item id="version"><![CDATA[1.21]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[onekey]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2 RC]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[是否開啟圖片推送:]]></item>
+				<item id="description"><![CDATA[如果帖子中含有圖片附件則會對附件的圖片進行推送，如果你的附件為遠程附件，不建議打開此功能]]></item>
+				<item id="variable"><![CDATA[istqpic]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[12]]></item>
+				<item id="title"><![CDATA[新浪微博AppKey:]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[sinappkey]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[11]]></item>
+				<item id="title"><![CDATA[騰訊微博AppKey:]]></item>
+				<item id="description"><![CDATA[[如果沒有請留空]如需在騰訊微博顯示來源，需向騰訊官方申請AppKey。發送以下信息：
+1.	網站名稱；
+2.	應用場景簡述；
+3.	域名；
+4.	需要顯示的來源字段。
+至郵箱api_weibo@tencent.com，通過審核後騰訊會郵件回復AppKey。說明：來源字段，不超過8個漢字。]]></item>
+				<item id="variable"><![CDATA[tqappkey]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[10]]></item>
+				<item id="title"><![CDATA[分享鏈接是否為推廣方式]]></item>
+				<item id="description"><![CDATA[如果開啟，剛會在鏈接後面添加 fromuid 參數]]></item>
+				<item id="variable"><![CDATA[ispromotion]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[請選擇需要開啟的分享]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[opentypes]]></item>
+				<item id="type"><![CDATA[selects]]></item>
+				<item id="extra"><![CDATA[0=空
+opentqq=分享到騰訊微博
+opensina=分享到新浪微博
+open163=分享到網易微博
+openqzone=分享到QQ空間
+openrenren=分享到人人網
+openkaixin=分享到開心網
+openbaisohu=分享到白社會
+opendouban=分享到豆瓣
+openshuqian=收藏到QQ書籤
+openbaidu=收藏到百度]]></item>
+				<item id="__value">
+					<item id="0"><![CDATA[opentqq]]></item>
+					<item id="1"><![CDATA[opensina]]></item>
+					<item id="2"><![CDATA[open163]]></item>
+					<item id="3"><![CDATA[openqzone]]></item>
+					<item id="4"><![CDATA[openrenren]]></item>
+					<item id="5"><![CDATA[openkaixin]]></item>
+					<item id="6"><![CDATA[openbaisohu]]></item>
+					<item id="7"><![CDATA[opendouban]]></item>
+					<item id="8"><![CDATA[openshuqian]]></item>
+					<item id="9"><![CDATA[openbaidu]]></item>
+				</item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[圖標置於最頂層]]></item>
+				<item id="description"><![CDATA[如果帖子加了圖章擋住了圖標，可以開啟此功能將圖標置於圖章上面]]></item>
+				<item id="variable"><![CDATA[csstop]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="onekey"><![CDATA[一鍵分享]]></item>
+				<item id="opentqq"><![CDATA[轉播到騰訊微博]]></item>
+				<item id="openqzone"><![CDATA[分享到QQ空間]]></item>
+				<item id="openshuqian"><![CDATA[收藏到QQ書籤]]></item>
+				<item id="openrenren"><![CDATA[分享到人人網]]></item>
+				<item id="openkaixin"><![CDATA[轉帖到開心網]]></item>
+				<item id="openbaisohu"><![CDATA[分享到白社會]]></item>
+				<item id="opendouban"><![CDATA[分享到豆瓣]]></item>
+				<item id="opensina"><![CDATA[分享到新浪微博]]></item>
+				<item id="open163"><![CDATA[分享到網易微博]]></item>
+				<item id="openbaidu"><![CDATA[添加到百度搜藏]]></item>
+				<item id="wating"><![CDATA[請稍候...]]></item>
+			</item>
+		</item>
+	</item>
+</root>

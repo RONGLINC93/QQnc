@@ -1,0 +1,35 @@
+#!/bin/bash
+# 安装后：准备持久化数据目录
+#  - mysql: 由 compose 首次启动时从 app/db 自动导入
+#  - data / uc_data: Discuz 运行时可写目录，从站点模板复制一份
+SITE="${TRIM_APPDEST}/site"
+
+mkdir -p "${TRIM_PKGVAR}/mysql" "${TRIM_PKGVAR}/data" "${TRIM_PKGVAR}/uc_data" "${TRIM_PKGVAR}/qf_data" 2>/dev/null
+
+if [ -d "${SITE}/data" ] && [ ! -f "${TRIM_PKGVAR}/data/install.lock" ]; then
+    cp -a "${SITE}/data/." "${TRIM_PKGVAR}/data/" 2>/dev/null
+fi
+
+if [ -d "${SITE}/uc_server/data" ] && [ -z "$(ls -A "${TRIM_PKGVAR}/uc_data" 2>/dev/null)" ]; then
+    cp -a "${SITE}/uc_server/data/." "${TRIM_PKGVAR}/uc_data/" 2>/dev/null
+fi
+
+# 农场插件的缓存/编译模板/日志目录（内含修补后的 _qsc.php 配置）
+QF_SRC="${SITE}/source/plugin/qqfarm/core/data"
+if [ -d "${QF_SRC}" ] && [ ! -f "${TRIM_PKGVAR}/qf_data/_qsc.php" ]; then
+    cp -a "${QF_SRC}/." "${TRIM_PKGVAR}/qf_data/" 2>/dev/null
+fi
+
+# webdevops 镜像中 php-fpm 以 application(1000)、apache 以 www-data 运行，需要可写
+chmod -R 777 "${TRIM_PKGVAR}/data" "${TRIM_PKGVAR}/uc_data" "${TRIM_PKGVAR}/qf_data" 2>/dev/null
+
+# 记录向导端口：写入持久化配置 + compose 项目目录的 .env
+PORT_CONF="${TRIM_PKGETC:-${TRIM_PKGVAR}/etc}/qqfarm_port.conf"
+P="${wizard_http_port:-8081}"
+case "$P" in ''|*[!0-9]*) P=8081 ;; esac
+if [ "$P" -lt 1 ] || [ "$P" -gt 65535 ]; then P=8081; fi
+mkdir -p "$(dirname "$PORT_CONF")" "${TRIM_APPDEST}/docker" 2>/dev/null
+echo "$P" > "$PORT_CONF" 2>/dev/null
+printf 'wizard_http_port=%s\n' "$P" > "${TRIM_APPDEST}/docker/.env" 2>/dev/null
+
+exit 0

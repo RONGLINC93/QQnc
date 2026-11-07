@@ -1,0 +1,14 @@
+<?PHP exit;?>	1451209109	admin	1	127.0.0.1		GET={}; POST={};
+<?PHP exit;?>	1451209109	admin	1	127.0.0.1	index	GET={}; POST={};
+<?PHP exit;?>	1451209112	admin	1	127.0.0.1	index	GET={}; POST={};
+<?PHP exit;?>	1451209113	admin	1	127.0.0.1	misc	GET={operation=custommenu; }; POST={};
+<?PHP exit;?>	1451209118	admin	1	127.0.0.1	setting	GET={operation=basic; }; POST={};
+<?PHP exit;?>	1451209121	admin	1	127.0.0.1	nav	GET={operation=headernav; }; POST={};
+<?PHP exit;?>	1451209122	admin	1	127.0.0.1	moderate	GET={}; POST={};
+<?PHP exit;?>	1451209123	admin	1	127.0.0.1	members	GET={operation=search; }; POST={};
+<?PHP exit;?>	1451209124	admin	1	127.0.0.1	portalcategory	GET={}; POST={};
+<?PHP exit;?>	1451209125	admin	1	127.0.0.1	group	GET={operation=setting; }; POST={};
+<?PHP exit;?>	1451209126	admin	1	127.0.0.1	tools	GET={operation=updatecache; }; POST={};
+<?PHP exit;?>	1451209126	admin	1	127.0.0.1	cloud	GET={operation=open; }; POST={};
+<?PHP exit;?>	1451209127	admin	1	127.0.0.1	founder	GET={operation=perm; }; POST={};
+<?PHP exit;?>	1451209129	admin	1	127.0.0.1	index	GET={}; POST={};

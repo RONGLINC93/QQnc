@@ -1,0 +1,13 @@
+appname = qqfarm
+version = 1.0.0
+display_name = "QQ农场"
+desc = "QQ农场私服服务端（Discuz X2 + QQ农场插件），容器化 PHP5 + MariaDB，内置管理面板（服务状态/充值工具/微端说明）"
+source = thirdparty
+platform = x86
+maintainer = "local"
+service_port = 8081
+checkport = false
+ctl_stop = true
+desktop_uidir = ui
+desktop_applaunchname = qqfarm.main
+changelog = "1.0.0 首次打包：论坛+农场+牧场+管理面板"

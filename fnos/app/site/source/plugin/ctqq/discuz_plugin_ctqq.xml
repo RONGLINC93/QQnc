@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X2 RC]]></item>
+	<item id="Time"><![CDATA[2011-05-10 09:49]]></item>
+	<item id="From"><![CDATA[Discuz! Board (http://localhost/x2/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[1]]></item>
+			<item id="name"><![CDATA[Ò»¼ü×ª²¥µ½ÌÚÑ¶Î¢²©]]></item>
+			<item id="identifier"><![CDATA[ctqq]]></item>
+			<item id="description"><![CDATA[Ò»¼ü·ÖÏíÄÚÈÝµ½ÌÚÑ¶Î¢²©ºÍÌÚÑ¶¿Õ¼ä¡£]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[ctqq/]]></item>
+			<item id="copyright"><![CDATA[Comsenz Support Team]]></item>
+			<item id="version"><![CDATA[1.3]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[ctqq]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2 RC]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[Á´½ÓÊÇ·ñÎª·ÃÎÊÍÆ¹ã·½Ê½]]></item>
+				<item id="description"><![CDATA[Èç¹û¿ªÆô£¬¸Õ»áÔÚÁ´½ÓºóÃæÌí¼Ó fromuid ²ÎÊý]]></item>
+				<item id="variable"><![CDATA[ispromotion]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[ÊÇ·ñ¿ªÆô·ÖÏíµ½ÌÚÑ¶Î¢²©]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[istqq]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[ÊÇ·ñ¿ªÆô·ÖÏíµ½QQ¿Õ¼ä]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[isqzone]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="3">
+				<item id="displayorder"><![CDATA[2]]></item>
+				<item id="title"><![CDATA[ÊÇ·ñ¿ªÆôÍ¼Æ¬ÍÆËÍ]]></item>
+				<item id="description"><![CDATA[Èç¹ûÌû×ÓÖÐº¬ÓÐÍ¼Æ¬¸½¼þÔò»á¶Ô¸½¼þµÄÍ¼Æ¬½øÐÐÍÆËÍ£¬Èç¹ûÄãµÄ¸½¼þÎªÔ¶³Ì¸½¼þ£¬²»½¨Òé´ò¿ª´Ë¹¦ÄÜ]]></item>
+				<item id="variable"><![CDATA[istqpic]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[1]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="4">
+				<item id="displayorder"><![CDATA[3]]></item>
+				<item id="title"><![CDATA[²»ÅÐ¶ÏÍ¼Æ¬ÊÇ·ñ´æÔÚ]]></item>
+				<item id="description"><![CDATA[Èç¹ûÄú¿ªÆôÁËÔ¶³Ì¸½¼þ£¬²å¼þ»á»¨±È½Ï¶àµÄÊ±¼äÅÐ¶ÏÍ¼Æ¬ÊÇ·ñ´æÔÚ¡£ËùÒÔ¿ªÔ¶³Ì¸½¼þÊ±½¨ÒéÑ¡¡°ÊÇ¡±£¬²»ÅÐ¶ÏÍ¼Æ¬ÊÇ·ñ´æÔÚ¡£±¾µØ¸½¼þÑ¡¡°·ñ¡±¡£]]></item>
+				<item id="variable"><![CDATA[ispicexist]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[0]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[1]]></item>
+				<item id="title"><![CDATA[ÌÚÑ¶Î¢²©AppKey]]></item>
+				<item id="description"><![CDATA[ÈçÐèÔÚÌÚÑ¶Î¢²©ÏÔÊ¾À´Ô´£¬ÐèÏòÌÚÑ¶¹Ù·½ÉêÇëAppKey¡£·¢ËÍÒÔÏÂÐÅÏ¢£º
+1.	ÍøÕ¾Ãû³Æ£»
+2.	Ó¦ÓÃ³¡¾°¼òÊö£»
+3.	ÓòÃû£»
+4.	ÐèÒªÏÔÊ¾µÄÀ´Ô´×Ö¶Î¡£
+ÖÁÓÊÏäapi_weibo@tencent.com£¬Í¨¹ýÉóºËºóÌÚÑ¶»áÓÊ¼þ»Ø¸´AppKey¡£ËµÃ÷£ºÀ´Ô´×Ö¶Î£¬²»³¬¹ý8¸öºº×Ö¡£[Èç¹ûÃ»ÓÐÇëÁô¿Õ]]]></item>
+				<item id="variable"><![CDATA[tqappkey]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+		<item id="language">
+			<item id="scriptlang">
+				<item id="cctoqq"><![CDATA[×ª²¥µ½ÌÚÑ¶Î¢²©]]></item>
+				<item id="cctoqshow"><![CDATA[·ÖÏíµ½QQ¿Õ¼ä]]></item>
+			</item>
+		</item>
+	</item>
+</root>

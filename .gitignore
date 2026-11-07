@@ -1,0 +1,16 @@
+# 凭据（切勿提交）
+.env
+.env.*
+!.env.example
+
+# 打包产物（体积大且每次构建都变）
+*.fpk
+*.fpk.bak
+
+# Python / 编辑器 / 系统
+__pycache__/
+*.py[cod]
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

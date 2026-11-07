@@ -1,0 +1,60 @@
+# 全部使用官方预构建镜像，安装时不做任何 build（飞牛无法现场构建镜像）
+services:
+  mysql:
+    image: mariadb:10.6
+    container_name: qqfarm-mysql
+    restart: unless-stopped
+    command:
+      - --character-set-server=gbk
+      - --collation-server=gbk_chinese_ci
+      - --sql-mode=
+      - --lower-case-table-names=1
+      - --max-allowed-packet=64M
+    environment:
+      MYSQL_ROOT_PASSWORD: ${QQFARM_DB_PASSWORD:-qqfarm123}
+    volumes:
+      - ${TRIM_PKGVAR:-./var}/mysql:/var/lib/mysql
+      - ${TRIM_APPDEST:-..}/db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  web:
+    # 官方 php:5.6-apache 不含任何 mysql 客户端扩展；此镜像含 mysqli/pdo_mysql/gd/mcrypt
+    image: webdevops/php-apache:5.6
+    container_name: qqfarm-web
+    restart: unless-stopped
+    environment:
+      WEB_DOCUMENT_ROOT: /var/www/html
+      WEB_DOCUMENT_INDEX: index.php
+    ports:
+      # fnOS 向导字段 wizard_http_port 会注入为同名环境变量；
+      # 未注入时由 cmd/* 写入的 docker/.env 提供，保证 fnOS 自行启动也用对端口
+      - "${wizard_http_port:-8081}:80"
+    volumes:
+      - ${TRIM_APPDEST:-..}/site:/var/www/html:ro
+      - ${TRIM_PKGVAR:-./var}/data:/var/www/html/data
+      - ${TRIM_PKGVAR:-./var}/uc_data:/var/www/html/uc_server/data
+      - ${TRIM_PKGVAR:-./var}/qf_data:/var/www/html/source/plugin/qqfarm/core/data
+      - ./web/qqfarm.ini:/usr/local/etc/php/conf.d/zz-qqfarm.ini:ro
+      - ./apache/qqfarm.conf:/etc/apache2/conf-enabled/zz-qqfarm.conf:ro
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  panel:
+    image: python:3.12-slim
+    container_name: qqfarm-panel
+    restart: unless-stopped
+    environment:
+      PANEL_API: http://web/panel_api.php
+      PANEL_TOKEN: qqfarm-panel-2026
+      PANEL_GAME_PORT: ${wizard_http_port:-8081}
+    volumes:
+      - ./panel:/panel:ro
+      - ${TRIM_APPDEST:-..}:/sockets
+    command: ["python", "/panel/app.py"]
+    depends_on:
+      - web

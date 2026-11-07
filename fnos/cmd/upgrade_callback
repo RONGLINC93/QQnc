@@ -1,0 +1,20 @@
+#!/bin/bash
+# 升级后：从持久化配置恢复端口（新包可能覆盖 docker/.env），再拉起容器
+TRIM_APPDEST="${TRIM_APPDEST:-.}"
+PORT_CONF="${TRIM_PKGETC:-${TRIM_PKGVAR}/etc}/qqfarm_port.conf"
+
+P="${wizard_http_port:-}"
+[ -z "$P" ] && [ -f "$PORT_CONF" ] && P="$(cat "$PORT_CONF" 2>/dev/null)"
+case "$P" in ''|*[!0-9]*) P=8081 ;; esac
+if [ "$P" -lt 1 ] || [ "$P" -gt 65535 ]; then P=8081; fi
+
+mkdir -p "$(dirname "$PORT_CONF")" "${TRIM_APPDEST}/docker" 2>/dev/null
+echo "$P" > "$PORT_CONF" 2>/dev/null
+printf 'wizard_http_port=%s\n' "$P" > "${TRIM_APPDEST}/docker/.env" 2>/dev/null
+export wizard_http_port="$P"
+export QQFARM_HTTP_PORT="$P"
+
+cd "${TRIM_APPDEST}/docker" || exit 0
+docker compose -p qqfarm -f docker-compose.yaml up -d --force-recreate >/dev/null 2>&1 \
+  || docker-compose -p qqfarm -f docker-compose.yaml up -d --force-recreate >/dev/null 2>&1
+exit 0

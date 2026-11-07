@@ -1,0 +1,27 @@
+[
+  {
+    "stepTitle": "服务设置",
+    "items": [
+      {
+        "type": "text",
+        "field": "wizard_http_port",
+        "label": "游戏服务端口",
+        "initValue": "8081",
+        "rules": [
+          {
+            "required": true,
+            "message": "请输入端口"
+          },
+          {
+            "pattern": "^[0-9]+$",
+            "message": "仅限数字"
+          }
+        ]
+      },
+      {
+        "type": "tips",
+        "helpText": "修改后应用会自动重建容器，游戏/论坛地址变为 http://NAS_IP:新端口（数据库和存档不会丢失）。请确保新端口未被其他应用占用，范围 1-65535，避免 5666/5667/8000 等系统端口。"
+      }
+    ]
+  }
+]

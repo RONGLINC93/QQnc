@@ -1,0 +1,6 @@
+#!/bin/bash
+# 卸载前：停止容器（数据目录 $TRIM_PKGVAR/mysql 保留）
+cd "${TRIM_APPDEST}/docker" 2>/dev/null && \
+  docker compose -p qqfarm -f docker-compose.yaml stop >/dev/null 2>&1
+docker stop qqfarm-web qqfarm-panel qqfarm-mysql >/dev/null 2>&1
+exit 0

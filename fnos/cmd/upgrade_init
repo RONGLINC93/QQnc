@@ -1,0 +1,6 @@
+#!/bin/bash
+# 升级前：停止本应用的 compose 项目
+cd "${TRIM_APPDEST}/docker" 2>/dev/null && \
+  docker compose -p qqfarm -f docker-compose.yaml stop >/dev/null 2>&1
+docker stop qqfarm-web qqfarm-panel qqfarm-mysql >/dev/null 2>&1
+exit 0
